@@ -29,7 +29,7 @@
 | sales status_id        | integer    | null: false       |
 | shipping fee status_id | integer    | null: false       |
 | prefecture_id          | integer    | null: false       |
-| scheduled delivery_id  | integer    | null: false       |
+| scheduled_delivery_id  | integer    | null: false       |
 | user                   | references | foreign_key: true |
 
 ### Association
@@ -43,7 +43,6 @@
 | ------------------- | ---------- | ----------------- |
 | user                | references | foreign_key: true |
 | item                | references | foreign_key: true |
-| prefecture          | references | foreign_key: true |
 
 ### Association
 
@@ -61,6 +60,7 @@
 | building_number     | string     |                   |
 | prefecture_id       | integer    | null: false       |
 | phone_number        | string     | null: false       |
+| buy                 | references | foreign_key: true |
 
 ### Association
 
