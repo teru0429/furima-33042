@@ -6,12 +6,12 @@
 | ------------------ | ------- | ------------ |
 | email              | string  | unique: true |
 | encrypted_password | string  | null: false  |
-| Nickname           | string  | null: false  |
-| Last name          | string  | null: false  |
-| First name         | string  | null: false  |
-| Last name kana     | string  | null: false  |
-| First name kana    | string  | null: false  |
-| Birth              | date    | null: false  |
+| nickname           | string  | null: false  |
+| last_name          | string  | null: false  |
+| first_name         | string  | null: false  |
+| last_name_kana     | string  | null: false  |
+| first_name_kana    | string  | null: false  |
+| birth              | date    | null: false  |
 
 ### Association
 
@@ -25,11 +25,11 @@
 | item_name              | string     | null: false       |
 | info                   | text       | null: false       |
 | price                  | integer    | null: false       |
-| Category_id            | integer    | null: false       |
+| category_id            | integer    | null: false       |
 | sales status_id        | integer    | null: false       |
 | shipping fee status_id | integer    | null: false       |
-| Prefecture_id          | integer    | null: false       |
-| Scheduled delivery_id  | integer    | null: false       |
+| prefecture_id          | integer    | null: false       |
+| scheduled delivery_id  | integer    | null: false       |
 | user                   | references | foreign_key: true |
 
 ### Association
@@ -43,7 +43,7 @@
 | ------------------- | ---------- | ----------------- |
 | user                | references | foreign_key: true |
 | item                | references | foreign_key: true |
-| Prefecture_id       | references | foreign_key: true |
+| prefecture          | references | foreign_key: true |
 
 ### Association
 
@@ -56,11 +56,11 @@
 | Column              | Type       | Options           |
 | ------------------- | ---------- | ----------------- |
 | address             | string     | null: false       |
-| Postal code         | string     | null: false       |
-| City                | string     | null: false       |
-| building number     | string     |                   |
-| Prefecture_id       | integer    | null: false       |
-| phone number        | string     | null: false       |
+| postal_code         | string     | null: false       |
+| city                | string     | null: false       |
+| building_number     | string     |                   |
+| prefecture_id       | integer    | null: false       |
+| phone_number        | string     | null: false       |
 
 ### Association
 
