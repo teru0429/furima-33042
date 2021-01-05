@@ -5,7 +5,7 @@
 | Column             | Type    | Options      |
 | ------------------ | ------- | ------------ |
 | email              | string  | unique: true |
-| password           | string  | null: false  |
+| encrypted_password | string  | null: false  |
 | Nickname           | string  | null: false  |
 | Last name          | string  | null: false  |
 | First name         | string  | null: false  |
@@ -43,6 +43,7 @@
 | ------------------- | ---------- | ----------------- |
 | user                | references | foreign_key: true |
 | item                | references | foreign_key: true |
+| Prefecture_id       | references | foreign_key: true |
 
 ### Association
 
@@ -58,7 +59,7 @@
 | Postal code         | string     | null: false       |
 | City                | string     | null: false       |
 | building number     | string     |                   |
-| Prefecture_id       | string     | foreign_key: true |
+| Prefecture_id       | integer    | null: false       |
 | phone number        | string     | null: false       |
 
 ### Association
