@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable
 
+  has_many :items 
+
   validates_presence_of :nickname, :birth
 
   with_options presence: true, format: { with: /\A[a-zA-Z0-9]+\z/, message: '半角英数字を使用してください' } do
