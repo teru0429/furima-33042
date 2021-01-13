@@ -16,6 +16,7 @@ RSpec.describe User_order, type: :model do
       end
 
       it "建物名が抜けていても登録できること" do
+        @order.building_number = nil
         expect(@order).to be_valid
       end
     end
