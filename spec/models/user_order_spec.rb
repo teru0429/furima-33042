@@ -11,8 +11,11 @@ RSpec.describe User_order, type: :model do
 
   describe '購入情報入力' do
     context '購入ができる時' do
-
       it "全て入力し登録できること" do
+        expect(@order).to be_valid
+      end
+
+      it "建物名が抜けていても登録できること" do
         expect(@order).to be_valid
       end
     end
@@ -67,6 +70,18 @@ RSpec.describe User_order, type: :model do
         expect(@order.errors.full_messages).to include("City is invalid. Input full-width characters.")
       end
 
+      it 'user_idが空だと購入できない' do
+        @order.user_id = nil
+        @order.valid?
+        expect(@order.errors.full_messages).to include("User id can't be blank")
+      end
+
+      it 'item_idが空だと購入できない' do
+        @order.item_id = nil
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Item id can't be blank")
+      end
+
       it 'phone_numberが空だと購入できない' do
         @order.phone_number = nil
         @order.valid?
@@ -87,6 +102,12 @@ RSpec.describe User_order, type: :model do
 
       it 'pgone_numberが11桁以上だと購入できない' do
         @order.phone_number = "090-1111-11111"
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Phone number is invalid.")
+      end
+
+      it 'phone_numberが英数混合では購入できない' do
+        @order.phone_number = "090aaaaaaaa"
         @order.valid?
         expect(@order.errors.full_messages).to include("Phone number is invalid.")
       end
