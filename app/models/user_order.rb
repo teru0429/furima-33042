@@ -1,11 +1,11 @@
 class UserOrder
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :address, :postal_code, :city, :building_number, :prefecture_id,  :phone_number, :token
+  attr_accessor :user_id, :item_id, :address, :postal_code, :city, :building_number, :prefecture_id, :phone_number, :token
 
   with_options presence: true do
     validates :address
-    validates :postal_code, format: {with: /\A\d{3}[-]\d{4}\z/, message: "is invalid. Include hyphen(-)"}
-    validates :city, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters."}
+    validates :postal_code,  format: {with: /\A\d{3}[-]\d{4}\z/, message: "is invalid. Include hyphen(-)"}
+    validates :city,         format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters."}
     validates :phone_number, format: {with: /\A\d{10,11}\z/, message: "is invalid."}
     validates :token
   end
