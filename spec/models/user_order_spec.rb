@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Order, type: :model do
+RSpec.describe User_order, type: :model do
   before do
     @user1 = FactoryBot.create(:user)
     @item = FactoryBot.create(:item,user_id: @user1.id)
