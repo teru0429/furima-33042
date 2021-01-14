@@ -41,8 +41,8 @@
 
 | Column              | Type       | Options           |
 | ------------------- | ---------- | ----------------- |
-| user                | references | foreign_key: true |
-| item                | references | foreign_key: true |
+| user_id             | references | foreign_key: true |
+| item_id             | references | foreign_key: true |
 
 ### Association
 
